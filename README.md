@@ -35,4 +35,4 @@ function animate (timestamp) {
 
 http://brian.peiris.io/three-firstperson-vr-controls/demo
   
-![Animated demo of the controls in action](http://brian.peiris.io/three-firstperson-vr-controls/demo/demo.gif?bust=1)
+![Animated demo of the controls in action](https://giant.gfycat.com/FluffyDownrightFishingcat.gif)

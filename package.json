@@ -1,0 +1,20 @@
+{
+  "name": "three-firstperson-vr-controls",
+  "description": "First-person controls for VR based on three.js",
+  "version": "0.1.0",
+  "repository": "brianpeiris/three-firstperson-vr-controls",
+  "keywords": [
+    "WebVR",
+    "three.js"
+  ],
+  "author": "Brian Peiris <brian@peiris.io> (http://brian.peiris.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brianpeiris/three-firstperson-vr-controls/issues"
+  },
+  "homepage": "https://github.com/brianpeiris/three-firstperson-vr-controls#readme",
+  "main": "FirstPersonVRControls.js",
+  "files": [
+    "FirstPersonVRControls.js"
+  ]
+}

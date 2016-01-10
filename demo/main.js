@@ -9,6 +9,8 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 // Create VRControls in addition to FirstPersonVRControls.
 var vrControls = new THREE.VRControls(camera);
 var fpVrControls = new THREE.FirstPersonVRControls(camera, scene);
+// Optionally enable vertical movement.
+fpVrControls.verticalMovement = true;
 
 var effect = new THREE.VREffect(renderer);
 effect.setSize(window.innerWidth, window.innerHeight);

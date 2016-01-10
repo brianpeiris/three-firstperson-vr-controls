@@ -36,3 +36,7 @@ function animate (timestamp) {
 http://brian.peiris.io/three-firstperson-vr-controls/demo
   
 ![Animated demo of the controls in action](http://im.ezgif.com/tmp/ezgif-3151209440.gif)
+
+## Credits
+
+Based on code from [THREE.FirstPersonControls](https://github.com/mrdoob/three.js/blob/master/examples/js/controls/FirstPersonControls.js) and its contributors.

@@ -1,0 +1,7 @@
+{
+  "name": "three-firstperson-vr-controls-demo",
+  "private": true,
+  "dependencies": {
+    "three-firstperson-vr-controls": "../"
+  }
+}

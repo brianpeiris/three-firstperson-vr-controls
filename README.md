@@ -33,6 +33,6 @@ function animate (timestamp) {
   
 ## Demo
 
-http://brian.peiris.io/three-first-person-vr-controls/demo
+http://brian.peiris.io/three-firstperson-vr-controls/demo
   
-![Animated demo of the controls in action](http://brian.peiris.io/three-first-person-vr-controls/demo/demo.gif)
+![Animated demo of the controls in action](http://brian.peiris.io/three-firstperson-vr-controls/demo/demo.gif)

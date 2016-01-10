@@ -17,16 +17,16 @@ First-person controls for VR based on three.js with look-based movement and "com
 ...  
 // Create VRControls in addition to FirstPersonVRControls.
 var vrControls = new THREE.VRControls(camera);
-var fpsVrControls = new THREE.FirstPersonVRControls(camera, scene);
+var fpVrControls = new THREE.FirstPersonVRControls(camera, scene);
 // Optionally enable vertical movement.
-fpsVrControls.verticalMovement = true;
+fpVrControls.verticalMovement = true;
 ...
 function animate (timestamp) {
   ...
   // Update FirstPersonControls after VRControls.
   // FirstPersonControls requires a timestamp.
   vrControls.update();
-  fpsVrControls.update(timestamp);
+  fpVrControls.update(timestamp);
   ...
 }
 ```

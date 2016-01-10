@@ -14,6 +14,7 @@ THREE.FirstPersonVRControls = function ( camera, scene ) {
   this.object = new THREE.Object3D();
 
   this.enabled = true;
+  this.verticalMovement = false;
   this.movementSpeed = 1.0;
   this.angle = 0;
   
@@ -115,8 +116,8 @@ THREE.FirstPersonVRControls = function ( camera, scene ) {
     if ( this.moveLeft ) this.object.translateX( - actualMoveSpeed );
     if ( this.moveRight ) this.object.translateX( actualMoveSpeed );
 
-    if ( this.moveUp ) this.object.translateY( actualMoveSpeed );
-    if ( this.moveDown ) this.object.translateY( - actualMoveSpeed );
+    if ( this.verticalMovement && this.moveUp ) this.object.translateY( actualMoveSpeed );
+    if ( this.verticalMovement && this.moveDown ) this.object.translateY( - actualMoveSpeed );
 
     var hasPosition = this.sensor && this.sensor.getState().hasPosition;
     var vrCameraPosition;

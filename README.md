@@ -1,6 +1,6 @@
 # THREE.FirstPersonVRControls
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/three-firstperson-vr-controls)
+[![npm](https://img.shields.io/npm/v/three-firstperson-vr-controls.svg)](https://www.npmjs.com/package/three-firstperson-vr-controls)
 
 First-person controls for VR based on three.js with look-based movement and "comfort mode" snap turning.
 

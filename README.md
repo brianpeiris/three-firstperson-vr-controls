@@ -47,7 +47,7 @@ renderer.animate(animate);
 
 http://brian.peiris.io/three-firstperson-vr-controls/demo/browser-demo.html
   
-![Animated demo of the controls in action](http://brian.peiris.io/three-firstperson-vr-controls/demo/demo.gif)
+![Animated demo of the controls in action](demo/demo.gif)
 
 ## Credits
 

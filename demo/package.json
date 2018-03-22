@@ -2,7 +2,7 @@
   "name": "three-firstperson-vr-controls-demo",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch webpack.config.js --exec webpack-dev-server",
+    "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --mode=development'",
     "build": "webpack --mode=production"
   },
   "dependencies": {

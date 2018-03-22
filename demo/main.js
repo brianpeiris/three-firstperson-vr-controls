@@ -1,60 +1,62 @@
-require('three-firstperson-vr-controls');
-
-var renderer = new THREE.WebGLRenderer({antialias: true});
+// FirstPersonVRControls is a global if we've been[ loaded by es-module-demo. Otherwise, it already be under THREE.
+if (!THREE.FirstPersonVRControls && window.FirstPersonVRControls) {
+  console.log('Found FirstPersonVRControls on the window');
+  THREE.FirstPersonVRControls = FirstPersonVRControls;
+}
+var renderer = new THREE.WebGLRenderer({canvas: document.querySelector('canvas') || undefined, antialias: true});
+window.renderer = renderer;
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.vr.enabled = true;
 document.body.appendChild(renderer.domElement);
+
+document.body.appendChild(WEBVR.createButton(renderer));
+
 var scene = new THREE.Scene(); 
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
-// Create VRControls in addition to FirstPersonVRControls.
-var vrControls = new THREE.VRControls(camera);
-var fpVrControls = new THREE.FirstPersonVRControls(camera, scene);
+var rig = new THREE.Object3D();
+rig.add(new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 0.2), new THREE.MeshNormalMaterial()));
+rig.add(camera);
+scene.add(rig);
+
+// Optionally provide a rig that is the camera's parent. 
+// If a rig is not provided, FirstPersonVRControls will create a rig and
+// add the camera to it.
+var fpVrControls = new THREE.FirstPersonVRControls(camera, scene, rig);
 // Optionally enable vertical movement.
 fpVrControls.verticalMovement = true;
-
-var effect = new THREE.VREffect(renderer);
-effect.setSize(window.innerWidth, window.innerHeight);
+// Optionally enable strafing.
+fpVrControls.strafing = true;
 
 var boxWidth = 5;
-var texture = THREE.ImageUtils.loadTexture(
-  'bower_components/webvr-boilerplate/img/box.png'
-);
-texture.wrapS = THREE.RepeatWrapping;
-texture.wrapT = THREE.RepeatWrapping;
+var texture = new THREE.TextureLoader().load('box.png');
+texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set(boxWidth, boxWidth);
-var geometry = new THREE.BoxGeometry(boxWidth, boxWidth, boxWidth);
-var material = new THREE.MeshBasicMaterial({
-  map: texture, color: 0x01BE00, side: THREE.BackSide
-});
-var skybox = new THREE.Mesh(geometry, material);
+var skybox = new THREE.Mesh(
+  new THREE.BoxGeometry(boxWidth, boxWidth, boxWidth),
+  new THREE.MeshBasicMaterial({
+    map: texture, color: 0x01BE00, side: THREE.BackSide
+  })
+);
+skybox.position.y = boxWidth / 2;
 scene.add(skybox);
 
-var manager = new WebVRManager(renderer, effect, {hideButton: false});
-
-var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-var material = new THREE.MeshNormalMaterial();
-var cube = new THREE.Mesh(geometry, material);
-cube.position.z = -1;
+var cube = new THREE.Mesh(
+  new THREE.BoxGeometry(0.5, 0.5, 0.5),
+  new THREE.MeshNormalMaterial()
+);
+cube.position.set(0, 0.25, -1);
 scene.add(cube);
 
-function animate(timestamp) {
+var clock = new THREE.Clock();
+function animate() {
   cube.rotation.y += 0.01;
 
-  // Update FirstPersonVRControls after VRControls.
   // FirstPersonVRControls requires a timestamp.
-  vrControls.update();
-  fpVrControls.update(timestamp);
+  fpVrControls.update(clock.getDelta());
 
-  manager.render(scene, camera, timestamp);
-  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 }
 
-animate();
-
-function onKey(event) {
-  if (event.keyCode == 90) { // z
-    vrControls.resetSensor();
-  }
-}
-
-window.addEventListener('keydown', onKey, true);
+renderer.animate(animate);

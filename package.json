@@ -13,8 +13,24 @@
     "url": "https://github.com/brianpeiris/three-firstperson-vr-controls/issues"
   },
   "homepage": "https://github.com/brianpeiris/three-firstperson-vr-controls#readme",
-  "main": "FirstPersonVRControls.js",
+  "main": "build/FirstPersonVRControls.umd.min.js",
   "files": [
+    "build",
     "FirstPersonVRControls.js"
-  ]
+  ],
+  "scripts": {
+    "build": "webpack"
+  },
+  "peerDependencies": {
+    "three": "^0.91.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "np": "^2.20.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.12"
+  }
 }

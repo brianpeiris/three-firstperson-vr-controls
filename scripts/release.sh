@@ -16,6 +16,6 @@ serve
 echo "Press enter to release or Ctrl-C to abort."
 read _
 
-git commit -am 'update builds' &&
+git commit -am 'update builds' ||
 git push &&
 np

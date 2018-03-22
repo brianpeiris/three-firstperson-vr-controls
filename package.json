@@ -19,7 +19,7 @@
     "FirstPersonVRControls.js"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "release": "./scripts/release.sh"
   },
   "peerDependencies": {

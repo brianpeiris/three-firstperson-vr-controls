@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon --watch webpack.config.js --exec webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack --mode=production"
   },
   "dependencies": {
     "three": "^0.91.0",

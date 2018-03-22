@@ -16,7 +16,6 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
 var rig = new THREE.Object3D();
-rig.add(new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 0.2), new THREE.MeshNormalMaterial()));
 rig.add(camera);
 scene.add(rig);
 

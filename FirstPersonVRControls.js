@@ -15,9 +15,10 @@ export default class FirstPersonVRControls {
   enabled = true;
   verticalMovement = false;
   strafing = false;
+  boost = true;
   movementSpeed = 1.0;
   snapAngle = 22.5 * Math.PI / 180;
-  boost = true;
+  boostFactor = 2;
 
   _angleQuaternion = new THREE.Quaternion();
 
@@ -131,7 +132,7 @@ export default class FirstPersonVRControls {
     this._collapseYComponent(this._tempObject.quaternion);
     
     let actualMoveSpeed = delta * this.movementSpeed;
-    if (this.boost && this._boosting) actualMoveSpeed = actualMoveSpeed * 2;
+    if (this.boost && this._boosting) actualMoveSpeed = actualMoveSpeed * this.boostFactor;
     
     if (this._moveForward) this._tempObject.translateZ(- actualMoveSpeed);
     if (this._moveBackward) this._tempObject.translateZ(actualMoveSpeed);

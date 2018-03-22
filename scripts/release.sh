@@ -10,7 +10,8 @@ echo "" &&
 echo "Build complete. Do some testing." &&
 echo "" &&
 
-serve &&
+serve ||
 
 git commit -am 'update builds' &&
-git push
+git push &&
+np

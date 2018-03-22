@@ -1,7 +1,7 @@
 {
   "name": "three-firstperson-vr-controls",
   "description": "First-person controls for VR based on three.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "brianpeiris/three-firstperson-vr-controls",
   "keywords": [
     "WebVR",

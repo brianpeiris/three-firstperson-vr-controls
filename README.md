@@ -37,7 +37,7 @@ function animate (timestamp) {
 
 http://brian.peiris.io/three-firstperson-vr-controls/demo
   
-![Animated demo of the controls in action](http://brian.peiris.io/three-firstperson-vr-controls/demo/demo.gif)
+![Animated demo of the controls in action](demo/demo.gif)
 
 ## Credits
 
